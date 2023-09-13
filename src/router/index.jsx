@@ -39,6 +39,13 @@ import { useSelector } from 'react-redux';
 import { redirect } from "react-router-dom";
 
 import Users from "../views/users/Main"
+import AllMembers from "../views/all-members/Main"
+import FirstTimers from "../views/first-timers/Main"
+import SecondTimers from "../views/second-timers/Main"
+import NewConverts from "../views/new-converts/Main"
+import AddFirstTimer from "../views/add-first-timers/Main";
+import AddSecondTimer from "../views/add-second-timers/Main";
+import AddNewConverts from "../views/add-new-converts/Main";
 
 function Router() {
   const routes = [
@@ -55,65 +62,46 @@ function Router() {
           element: <Page2 />,
         },
         {
+          path: "add-new-converts",
+          element: <AddNewConverts />,
+        },
+        {
+          path: "add-second-timers",
+          element: <AddSecondTimer />,
+        },
+        {
+          path: "add-first-timers",
+          element: <AddFirstTimer />,
+        },
+        {
           path: "add-account",
           element: <AddAccount />,
         },
         {
-          path: "add-course",
-          element: <AddCourse />,
+          path: "all-members",
+          element: <AllMembers />,
         },
         {
-          path: "statutes",
-          element: <Statutes />,
+          path: "first-timers",
+          element: <FirstTimers />,
         },
         {
-          path: "add-statute",
-          element: <AddStatute />,
+          path: "second-timers",
+          element: <SecondTimers />,
         },
         {
-          path: "past-questions",
-          element: <PastQuestions />,
-        },
-        {
-          path: "add-past-question",
-          element: <AddPastQuestion />,
-        },
-        {
-          path: "drafts",
-          element: <Drafts />,
+          path: "new-converts",
+          element: <NewConverts />,
         },
         {
           path: "users",
           element: <Users />,
         },
         {
-          path: "add-draft",
-          element: <AddDraft />,
+          path: "add-course",
+          element: <AddCourse />,
         },
-        {
-          path: "decided-cases",
-          element: <DecidedCases />,
-        },
-        {
-          path: "add-decided-case",
-          element: <AddDecidedCase />,
-        },
-        {
-          path: "add-QandA",
-          element: <AddQandA />,
-        },
-        {
-          path: "QandAs",
-          element: <QandAs />,
-        },
-        {
-          path: "edit-QandAs",
-          element: <EditQandAs />,
-        },
-        {
-          path: "add-week-content/:id1/:id2",
-          element: <AddWeekContent />,
-        },
+
         {
           path: "edit-course/:id",
           element: <EditCourse />,
@@ -122,53 +110,10 @@ function Router() {
           path: "edit-draft/:id",
           element: <EditDraft />,
         },
-        {
-          path: "add-BOW",
-          element: <AddBOW />,
-        },
-        {
-          path: "BOW",
-          element: <BOW />,
-        },
+
         {
           path: "profile",
           element: <Profile />,
-        },
-        {
-          path: "institutions",
-          element: <Institution />,
-        },
-        {
-          path: "edit-institution/:id",
-          element: <EditInstitution />,
-        },
-        {
-          path: "add-institution",
-          element: <AddInstitution />,
-        },
-        {
-          path: "edit-statute/:id",
-          element: <EditStatute />,
-        },
-        {
-          path: "edit-past-question/:id",
-          element: <EditPastQuestion />,
-        },
-        {
-          path: "add-ad",
-          element: <AddAds />,
-        },
-        {
-          path: "ads",
-          element: <Ads />,
-        },
-        {
-          path: "edit-ad/:id",
-          element: <EditAd />,
-        },
-        {
-          path: "edit-bow/:id",
-          element: <EditBOW />,
         },
         {
           path: "notifications",

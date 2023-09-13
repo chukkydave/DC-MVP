@@ -18,6 +18,8 @@ import classnames from "classnames";
 import { logout } from "../../features/auth/authSlice";
 import { signOut } from "firebase/auth";
 import { auth } from '../../firebase';
+import { persistor } from '../../app/store'
+
 
 function Main(props) {
   const [searchDropdown, setSearchDropdown] = useState(false);
@@ -47,6 +49,7 @@ function Main(props) {
   const log_out = () => {
     signOut(auth).then(() => {
       // Sign-out successful.
+      persistor.purge()
       dispatch(logout());
       navigate("/login");
     }).catch((error) => {
@@ -71,7 +74,7 @@ function Main(props) {
               className="w-6"
               src={logoUrl}
             />
-            <span className="text-white text-lg ml-3"> Glimswave </span>
+            <span className="text-white text-lg ml-3"> MVP </span>
           </Link>
           {/* END: Logo */}
           {/* BEGIN: Breadcrumb */}

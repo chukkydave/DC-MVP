@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+// import { PURGE, FLUSH, PAUSE } from 'redux-persist';
 
 const authSlice = createSlice({
     name: 'auth',
@@ -23,8 +24,10 @@ const authSlice = createSlice({
         logout: (state) => {
             state.token = null;
             state.user = null; // clear user data on logout
-            localStorage.removeItem('authToken')
+            localStorage.removeItem('authToken');
+
         },
+
 
     },
 });

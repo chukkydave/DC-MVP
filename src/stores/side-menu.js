@@ -10,55 +10,31 @@ const sideMenu = atom({
         title: "Dashboard",
       },
       {
+        icon: "Users",
+        pathname: "/all-members",
+        title: "All Members",
+      },
+      {
+        icon: "User",
+        pathname: "/first-timers",
+        title: "First Timers",
+      },
+      {
+        icon: "User",
+        pathname: "/second-timers",
+        title: "Second Timers",
+      },
+      {
+        icon: "User",
+        pathname: "/new-converts",
+        title: "New Converts",
+      },
+      {
         icon: "Sidebar",
         pathname: "/users",
         title: "Users",
       },
-      {
-        icon: "Trello",
-        pathname: "/drafts",
-        title: "Drafts",
-      },
-      {
-        icon: "Trello",
-        pathname: "/decided-cases",
-        title: "Decided Cases",
-      },
-      {
-        icon: "Trello",
-        pathname: "/QandAs",
-        title: "Q and As",
-      },
-      {
-        icon: "FileText",
-        pathname: "/statutes",
-        title: "Statutes",
-      },
-      {
-        icon: "Edit",
-        pathname: "/past-questions",
-        title: "Past Questions",
-      },
-      {
-        icon: "Edit",
-        pathname: "/BOW",
-        title: "BOW",
-      },
-      {
-        icon: "Edit",
-        pathname: "/institutions",
-        title: "Institutions",
-      },
-      {
-        icon: "Edit",
-        pathname: "/ads",
-        title: "Ads",
-      },
-      {
-        icon: "Edit",
-        pathname: "/notifications",
-        title: "Notification",
-      },
+
     ],
   },
 });
