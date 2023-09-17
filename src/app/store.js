@@ -8,6 +8,8 @@ import draftsReducer from "../features/drafts/draftsSlice";
 import decidedCasesReducer from "../features/decided-cases/decidedCasesSlice";
 import qAndAsReducer from "../features/QandA/QandASlice";
 import bowReducer from "../features/BOW/bowSlice";
+import firstTimer from "../features/first-timers/firstTimersSlice";
+import secondTimer from "../features/second-timers/secondTimersSlice";
 import institutionReducer from "../features/institutions/institutionSlice";
 import notificationReducer from "../features/notifications/notificationSlice";
 import usersReducer from "../features/users/usersSlice";
@@ -36,7 +38,9 @@ const appReducer = combineReducers({
     institutions: institutionReducer,
     notifications: notificationReducer,
     ads: adReducer,
-    users: usersReducer
+    users: usersReducer,
+    firstTimers: firstTimer,
+    secondTimer: secondTimer
 })
 
 const rootReducer = (state, action) => {

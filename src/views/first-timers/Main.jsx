@@ -18,15 +18,19 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAllUsers, fetchUsers, deleteUser } from "../../features/users/usersSlice"
+import { selectAllFirstTimers, fetchFirstTimers, deleteFirstTimer } from "../../features/first-timers/firstTimersSlice"
 import Toastify from "toastify-js";
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
+import { collection, addDoc, onSnapshot, getDocs, query, where } from "firebase/firestore";
+import { db } from "../../firebase"
 
 
 function Main() {
     const [deleteConfirmationModal, setDeleteConfirmationModal] = useState(false);
     const [selectedId, setSelectedId] = useState('');
     const [zone, setZone] = useState("");
+
     const [userDetail, setUserDetail] = useState({
         confirm_code_sent_at: '',
         confirmed: '',
@@ -52,7 +56,9 @@ function Main() {
     const [totalPages, setTotalPages] = useState(0); // Total number of pages
     const [total_rows, setTotal_rows] = useState(0);
     const dispatch = useDispatch();
-    const users = useSelector(selectAllUsers);
+    // const users = useSelector(selectAllUsers);
+    const users = [];
+    const firstTime = []
     const [headerFooterModalPreview, setHeaderFooterModalPreview] = useState(false);
     const zoneList = [
         "ADENIRAN OGUNSANYA",
@@ -76,6 +82,20 @@ function Main() {
 
     ]
 
+    const fetchData = async () => {
+        try {
+            // Specify the collection you want to fetch from
+            const querySnapshot = await getDocs(collection(db, 'first-timers'));
+            // Process the documents from the collection
+            // querySnapshot.forEach((doc) => {
+            //     // Access data from the document using doc.data()
+            //     console.log(doc.id, ' => ', doc.data());
+            // });
+        } catch (error) {
+            console.error('Error fetching data: ', error);
+        }
+    };
+
     useEffect(() => {
         dispatch(fetchUsers({ page, limit }))
             .then((response) => {
@@ -87,13 +107,14 @@ function Main() {
             .catch((error) => {
                 // Handle error if needed
             });
+        fetchData
     }, [dispatch, page, limit]);
     // }, [dispatch]);
 
     const handlePageChange = (event, newPage) => {
         setPage(newPage);
     };
-
+    console.log(firstTime)
     const handleLimitChange = (event) => {
         const newLimit = event.target.value;
         setLimit(newLimit);
